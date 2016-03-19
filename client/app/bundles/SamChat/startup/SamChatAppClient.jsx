@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import Immutable from 'immutable';
 
-
 const createStore = props => (
     {
       $$samChatAppstore: Immutable.fromJS({
@@ -17,7 +16,7 @@ const createStore = props => (
 export default (props) => {
   // const store = createStore(props);
   const messages = props.messages.map(message => {
-    return <div key={message.key}>{message.author} - {message.body}</div>;
+    return <div key={message.key}>{message.key}. {message.author} - {message.body}</div>;
   });
   const reactComponent = (
     <div>

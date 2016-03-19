@@ -21,7 +21,7 @@ config.output = {
   path: __dirname,
 };
 config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
-config.devtool = 'eval-source-map';
+config.devtool = '#eval';
 
 // All the styling loaders only apply to hot-reload, not rails
 config.module.loaders.push(
