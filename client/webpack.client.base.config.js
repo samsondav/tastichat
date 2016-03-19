@@ -22,6 +22,7 @@ module.exports = {
     // webpack.rails.config
     app: [
       './app/bundles/HelloWorld/startup/clientRegistration',
+      './app/bundles/SamChat/startup/clientRegistration',
     ],
   },
   resolve: {

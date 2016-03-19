@@ -1,4 +1,6 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
+import Immutable from 'immutable';
+
 
 // See
 // https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
