@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Message.create!(
+  author: 'Luke',
+  body: 'Thanks for the teaching Obi Wan!'
+)
+
+Message.create!(
+  author: 'Yoda',
+  body: 'Great teacher Obi Wan is'
+)

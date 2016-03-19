@@ -17,7 +17,7 @@ const createStore = props => (
 export default (props) => {
   // const store = createStore(props);
   const messages = props.messages.map(message => {
-    return <div>{message}</div>;
+    return <div key={message.key}>{message.author} - {message.body}</div>;
   });
   const reactComponent = (
     <div>
