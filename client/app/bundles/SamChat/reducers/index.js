@@ -1,10 +1,16 @@
-const messages = (state, action) => {
+const initialState = [
+  {key: '1', body: 'test', author: 'test'}
+]
+
+const samChat = (state = initialState, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
       return [
         ...state,
         {
-          body: action.body
+          key: action.key,
+          body: action.body,
+          author: action.author
         }
       ]
     default:
@@ -12,4 +18,4 @@ const messages = (state, action) => {
   }
 }
 
-export default messages
+export default samChat

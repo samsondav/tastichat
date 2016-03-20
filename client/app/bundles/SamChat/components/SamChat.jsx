@@ -1,7 +1,10 @@
 import React from 'react';
+import MessagesListContainer from '../containers/MessagesListContainer'
 
 const SamChat = () => (
-  <div></div>
+  <div>
+    <MessagesListContainer />
+  </div>
 );
 
 export default SamChat;
