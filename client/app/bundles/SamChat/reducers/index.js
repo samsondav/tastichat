@@ -1,21 +1,33 @@
 const initialState = [
-  {key: '1', body: 'test', author: 'test'}
-]
+  {id: 1, body: 'test', author: 'test', timestamp: (new Date)}
+];
 
-const samChat = (state = initialState, action) => {
+let nextId = 2;
+
+const message = (state, action) => {
+  switch (action.type) {
+    case 'SEND_MESSAGE':
+      return {
+        id: nextId++,
+        timestamp: action.timestamp,
+        body: action.body,
+        author: action.author,
+      };
+    default:
+      return state;
+  }
+};
+
+const messages = (state = initialState, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
       return [
         ...state,
-        {
-          key: action.key,
-          body: action.body,
-          author: action.author
-        }
-      ]
+        message(undefined, action),
+      ];
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default samChat
+export default messages;

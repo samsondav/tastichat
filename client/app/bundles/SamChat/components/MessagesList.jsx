@@ -1,20 +1,16 @@
 import React, { PropTypes } from 'react';
+import Message from './message';
 
 const MessagesList = ({ messages }) => (
   <ul>
-    {messages.map(message =>
-      <div>{message.body}</div>)}
+    {
+      messages.map(message => <Message message={message} key={message.id} />)
+    }
   </ul>
 );
 
-const messageShape = PropTypes.shape({
-  key: PropTypes.number.isRequired,
-  author: PropTypes.bool.isRequired,
-  body: PropTypes.string.isRequired
-}).isRequired
-
 MessagesList.propTypes = {
-  messages: PropTypes.arrayOf(messageShape).isRequired
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default MessagesList
