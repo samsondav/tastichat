@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { sendMessage } from '../actions/sendMessage';
 
 // All Redux connected components with no mapDispatchToProps argument specified
@@ -13,12 +14,17 @@ class WriteMessage extends React.Component {
     super(props, context);
     this.state = {
       authorText: '',
-      bodyText: ''
-    }
+      bodyText: '',
+    };
+    _.bindAll(this, 'handleButtonClick');
   }
 
   handleButtonClick(event) {
-    debugger
+    const author = this.state.authorText;
+    const body = this.state.bodyText;
+    const submitTime = new Date;
+
+    this.props.dispatch(sendMessage(author, body, submitTime));
   }
 
   createChangeHandler(key) {
@@ -53,7 +59,7 @@ class WriteMessage extends React.Component {
       <button
         type="button"
         className="write-message__button"
-        onClick={this.handleButtonClick.bind(this)}
+        onClick={this.handleButtonClick}
       >
         Send Message
       </button>
