@@ -28,11 +28,7 @@ class WriteMessage extends React.Component {
   }
 
   createChangeHandler(key) {
-    return event => {
-      const newState = {};
-      newState[key] = event.target.value;
-      this.setState(newState);
-    };
+    return event => this.setState({ [key]: event.target.value });
   }
 
   render() {

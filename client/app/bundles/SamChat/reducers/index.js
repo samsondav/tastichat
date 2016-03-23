@@ -1,5 +1,5 @@
 const initialState = [
-  {id: 1, body: 'test', author: 'test', timestamp: (new Date)}
+  {id: 1, body: 'test', author: 'test', timestamp: (new Date), state: "RECEIVED"}
 ];
 
 const message = (state, action) => {
