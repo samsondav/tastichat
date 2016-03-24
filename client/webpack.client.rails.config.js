@@ -44,7 +44,7 @@ module.exports = config;
 
 if (devBuild) {
   console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
-  module.exports.devtool = 'cheap-eval-source-map';
+  module.exports.devtool = '#eval';
 } else {
   config.plugins.push(
     new webpack.optimize.DedupePlugin()

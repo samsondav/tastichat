@@ -1,6 +1,8 @@
 import request from 'axios';
 import _ from 'lodash';
 
+request.defaults.headers.post['Content-Type'] = 'application/json';
+
 /**
  * Get CSRF Token from the DOM.
  *

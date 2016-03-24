@@ -9,7 +9,7 @@ const messageKey = (message) => {
 };
 
 const MessagesList = ({ messages }) => (
-  <ul class="messages-list">
+  <ul className="messages-list">
     {
       messages.map(message => <Message message={message} key={messageKey(message)} />)
     }
