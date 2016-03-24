@@ -1,9 +1,10 @@
 class Message < ApplicationRecord
   def as_json
     {
-      key: id,
+      id: id,
       author: author,
-      body: body
+      body: body,
+      sent_at: sent_at
     }
   end
 end

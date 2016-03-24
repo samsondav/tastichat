@@ -18,7 +18,7 @@ const addMessage = (author, body, submitTime, localId) => {
     type: 'SEND_MESSAGE',
     author: author,
     body: body,
-    timestamp: submitTime,
+    sent_at: submitTime,
     localId: localId,
   };
 };

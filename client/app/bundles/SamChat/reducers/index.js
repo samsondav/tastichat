@@ -1,12 +1,10 @@
-const initialState = [
-  {id: 1, body: 'test', author: 'test', timestamp: (new Date), state: 'RECEIVED'}
-];
+const initialState = [ ];
 
 const message = (state, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
       return {
-        timestamp: action.timestamp,
+        sent_at: action.timestamp,
         body: action.body,
         author: action.author,
         localId: action.localId,

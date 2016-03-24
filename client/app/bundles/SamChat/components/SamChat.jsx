@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import MessagesListContainer from '../containers/MessagesListContainer'
 import WriteMessage from '../containers/WriteMessage'
 

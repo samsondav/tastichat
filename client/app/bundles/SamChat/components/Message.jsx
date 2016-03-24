@@ -16,14 +16,14 @@ const Message = ({ message }) =>
     <li
       className={messageClass(message)}
     >
-      {message.author} said "{message.body}" at {message.timestamp.toString()}
+      {message.author} said "{message.body}" at {message.sent_at.toString()}
     </li>
   );
 
 const messageShape = PropTypes.shape({
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timestamp: PropTypes.instanceOf(Date),
+  sent_at: PropTypes.instanceOf(Date),
 }).isRequired;
 
 Message.propTypes = {
