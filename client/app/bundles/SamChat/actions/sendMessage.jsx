@@ -29,6 +29,13 @@ const serverReceivedMessage = (localId, id) => {
   }
 };
 
+const serverRejectedMessage = (localId) => {
+  return {
+    type: 'SERVER_REJECTED_MESSAGE',
+    localId,
+  };
+};
+
 let localId = 0;
 
 export const sendMessage = (author, body, submitTime = new Date) =>
@@ -49,5 +56,7 @@ export const sendMessage = (author, body, submitTime = new Date) =>
     }).then(res => {
       const canonicalId = res.data.message.id;
       dispatch(serverReceivedMessage(messageLocalId, canonicalId));
+    }).catch(err => {
+      dispatch(serverRejectedMessage(messageLocalId))
     });
   };

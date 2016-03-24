@@ -1,16 +1,20 @@
 import React, { PropTypes } from 'react';
 
-const isSending = (message) => {
-  if (message.localId) {
-    return true;
+const messageClass = (message) => {
+  switch (message.state) {
+    case 'RECEIVED':
+      return 'messages-list__message--sent'
+    case 'PENDING':
+      return 'messages-list__message--sending'
+    case 'REJECTED':
+      return 'messages-list__message--failed'
   }
-  return false;
 }
 
 const Message = ({ message }) =>
   (
     <li
-      className={isSending(message) ? "sending" : "sent"}
+      className={messageClass(message)}
     >
       {message.author} said "{message.body}" at {message.timestamp.toString()}
     </li>

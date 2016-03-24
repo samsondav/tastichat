@@ -1,5 +1,5 @@
 const initialState = [
-  {id: 1, body: 'test', author: 'test', timestamp: (new Date)}
+  {id: 1, body: 'test', author: 'test', timestamp: (new Date), state: 'RECEIVED'}
 ];
 
 const message = (state, action) => {
@@ -10,12 +10,23 @@ const message = (state, action) => {
         body: action.body,
         author: action.author,
         localId: action.localId,
+        state: 'PENDING',
       };
     case 'SERVER_RECEIVED_MESSAGE':
       if (state.localId === action.localId) {
         return Object.assign(state, {
           id: action.id,
           localId: null,
+          state: 'RECEIVED',
+        });
+      }
+      return state;
+    case 'SERVER_REJECTED_MESSAGE':
+      if (state.localId === action.localId) {
+        return Object.assign(state, {
+          id: action.id,
+          localId: null,
+          state: 'REJECTED',
         });
       }
       return state;
@@ -32,6 +43,7 @@ const messages = (state = initialState, action) => {
         message(undefined, action),
       ];
     case 'SERVER_RECEIVED_MESSAGE':
+    case 'SERVER_REJECTED_MESSAGE':
       return state.map(m =>
         message(m, action)
       );
