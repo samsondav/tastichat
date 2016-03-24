@@ -4,7 +4,7 @@ const message = (state, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
       return {
-        sent_at: action.timestamp,
+        sent_at: action.sent_at,
         body: action.body,
         author: action.author,
         localId: action.localId,
