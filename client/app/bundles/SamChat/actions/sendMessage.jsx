@@ -1,7 +1,6 @@
 import request from 'axios';
 import _ from 'lodash';
 
-
 /**
  * Get CSRF Token from the DOM.
  *
@@ -12,23 +11,30 @@ const getCSRFToken = () => {
   return token ? token.content : null;
 };
 
-
-let nextMessageId = 2;
-
-const addMessage = (author, body, submitTime) => {
+const addMessage = (author, body, submitTime, localId) => {
   return {
     type: 'SEND_MESSAGE',
-    id: nextMessageId++,
     author: author,
     body: body,
     timestamp: submitTime,
-    state: 'SENDING'
-  }
-}
+    localId: localId,
+  };
+};
 
-export const sendMessage = (author, body, submitTime = new Date) => {
-  return dispatch => {
-    dispatch(addMessage(author, body, submitTime));
+const serverReceivedMessage = (localId, id) => {
+  return {
+    type: 'SERVER_RECEIVED_MESSAGE',
+    localId,
+    id,
+  }
+};
+
+let localId = 0;
+
+export const sendMessage = (author, body, submitTime = new Date) =>
+  dispatch => {
+    const messageLocalId = localId++;
+    dispatch(addMessage(author, body, submitTime, messageLocalId));
 
     return request({
       method: 'POST',
@@ -38,11 +44,10 @@ export const sendMessage = (author, body, submitTime = new Date) => {
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        author, body, sent_at: submitTime,
+        message: { author, body, sent_at: submitTime },
       },
     }).then(res => {
-      debugger
+      const canonicalId = res.data.message.id;
+      dispatch(serverReceivedMessage(messageLocalId, canonicalId));
     });
-
-  }
-}
+  };

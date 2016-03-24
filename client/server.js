@@ -1,3 +1,4 @@
+"use strict";
 // This file is used by the webpack HMR dev server to load your component without using Rails
 // It should simply match routes to basic HTML or jade files that render your component
 /* eslint-disable no-console, func-names, no-var */
@@ -40,14 +41,15 @@ server.app.use(bodyParser.urlencoded({extended: true}));
 //   res.send(JSON.stringify(name));
 // });
 
+let startId = 33;
+
 server.app.post('/api/message.json', function(req, res) {
   console.log('Processing request: %j', req.body);
   console.log('(shhhh...napping 1 seconds)');
   sleep.sleep(1);
   console.log('Just got done with nap!');
-  name = req.body.name;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(req.body));
+  res.send(JSON.stringify({message: {id: startId++}}));
 });
 
 var initialName = 'Stranger';
