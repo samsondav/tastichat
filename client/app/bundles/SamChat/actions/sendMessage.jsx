@@ -18,7 +18,7 @@ const addMessage = (author, body, submitTime, localId) => {
     type: 'SEND_MESSAGE',
     author: author,
     body: body,
-    sent_at: submitTime,
+    sentAt: submitTime,
     localId: localId,
   };
 };
@@ -45,6 +45,7 @@ export const sendMessage = (author, body, submitTime = new Date) =>
     const messageLocalId = localId++;
     dispatch(addMessage(author, body, submitTime, messageLocalId));
 
+    // TODO: factor into a request/post library
     return request({
       method: 'POST',
       url: '/api/message.json',
@@ -53,7 +54,7 @@ export const sendMessage = (author, body, submitTime = new Date) =>
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        message: { author, body, sent_at: submitTime },
+        message: { author, body, sent_at: submitTime.toISOString },
       },
     }).then(res => {
       const canonicalId = res.data.message.id;

@@ -4,7 +4,7 @@ class Message < ApplicationRecord
       id: id,
       author: author,
       body: body,
-      sent_at: sent_at
+      sent_at: sent_at.iso8601
     }
   end
 end

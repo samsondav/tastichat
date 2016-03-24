@@ -11,19 +11,20 @@ const messageClass = (message) => {
   }
 }
 
-const Message = ({ message }) =>
-  (
+const Message = ({ message }) => {
+  return (
     <li
       className={messageClass(message)}
     >
-      {message.author} said "{message.body}" at {message.sent_at.toString()}
+      {message.author} said "{message.body}" at {message.sentAt.toString()}
     </li>
   );
+}
 
 const messageShape = PropTypes.shape({
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  sent_at: PropTypes.instanceOf(Date),
+  sentAt: PropTypes.instanceOf(Date),
 }).isRequired;
 
 Message.propTypes = {

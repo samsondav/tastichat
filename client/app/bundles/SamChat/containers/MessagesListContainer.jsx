@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import MessagesList from '../components/MessagesList'
 
-const mapStateToProps = state => {
+const mapStateToProps = applicationState => {
   return {
-    messages: state
+    messages: applicationState.messages
   }
 }
 

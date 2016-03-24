@@ -8,13 +8,13 @@ const messageKey = (message) => {
   return `local_${message.localId}`;
 };
 
-const MessagesList = ({ messages }) => (
-  <ul className="messages-list">
+const MessagesList = ({ messages }) => {
+  return <ul className="messages-list">
     {
       messages.map(message => <Message message={message} key={messageKey(message)} />)
     }
   </ul>
-);
+};
 
 MessagesList.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.object).isRequired
