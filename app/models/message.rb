@@ -1,4 +1,6 @@
 class Message < ApplicationRecord
+  validates :author, :body, :sent_at, presence: true
+
   def as_json
     {
       id: id,

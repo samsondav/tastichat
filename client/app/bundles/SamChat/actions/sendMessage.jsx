@@ -54,7 +54,7 @@ export const sendMessage = (author, body, submitTime = new Date) =>
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        message: { author, body, sent_at: submitTime.toISOString },
+        message: { author, body, sent_at: submitTime.toISOString() },
       },
     }).then(res => {
       const canonicalId = res.data.message.id;
