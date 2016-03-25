@@ -10,7 +10,6 @@ class SamChatController < ApplicationController
   end
 
   def api_post_message
-    binding.pry
     m = Message.create!(message_params)
     render json: { message: { id: m.id } }, status: :created
   end

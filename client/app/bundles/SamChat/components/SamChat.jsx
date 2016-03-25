@@ -3,7 +3,7 @@ import MessagesListContainer from '../containers/MessagesListContainer'
 import WriteMessageContainer from '../containers/WriteMessageContainer'
 
 const SamChat = () => (
-  <div>
+  <div className="chat-window">
     <WriteMessageContainer />
     <MessagesListContainer />
   </div>
