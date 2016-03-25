@@ -1,27 +1,28 @@
 import React, { PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const messageClass = (message) => {
-  switch (message.state) {
+  switch (message.get('state')) {
     case 'RECEIVED':
-      return 'messages-list__message--sent'
+      return 'messages-list__message--sent';
     case 'PENDING':
-      return 'messages-list__message--sending'
+      return 'messages-list__message--sending';
     case 'REJECTED':
-      return 'messages-list__message--failed'
+      return 'messages-list__message--failed';
+    default:
+      throw new Error `unknown message state: ${message.get('state')}`;
   }
-}
+};
 
-const Message = ({ message }) => {
-  return (
+const Message = ({ message }) => (
     <li
       className={messageClass(message)}
     >
-      {message.author} said "{message.body}" at {message.sentAt.toString()}
+      {message.get('author')} said "{message.get('body')}" at {message.get('sentAt').toString()}
     </li>
-  );
-}
+);
 
-const messageShape = PropTypes.shape({
+const messageShape = ImmutablePropTypes.contains({
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   sentAt: PropTypes.instanceOf(Date),

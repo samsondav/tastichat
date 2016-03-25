@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import MessagesListContainer from '../containers/MessagesListContainer'
-import WriteMessage from '../containers/WriteMessage'
+import WriteMessageContainer from '../containers/WriteMessageContainer'
 
 const SamChat = () => (
   <div>
-    <WriteMessage />
+    <WriteMessageContainer />
     <MessagesListContainer />
   </div>
 );

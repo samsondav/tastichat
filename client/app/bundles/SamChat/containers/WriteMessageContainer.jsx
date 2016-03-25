@@ -5,7 +5,7 @@ import { sendMessage } from '../actions/sendMessage';
 
 // All Redux connected components with no mapDispatchToProps argument specified
 // get props.dispatch set automatically
-class WriteMessage extends React.Component {
+class WriteMessageContainer extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired
   };
@@ -64,4 +64,4 @@ class WriteMessage extends React.Component {
   }
 }
 
-export default connect()(WriteMessage);
+export default connect()(WriteMessageContainer);

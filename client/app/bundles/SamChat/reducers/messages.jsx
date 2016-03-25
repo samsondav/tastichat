@@ -1,18 +1,20 @@
-const initialState = [ ];
+import Immutable from 'immutable';
+
+const initialState = Immutable.List([]);
 
 const message = (state, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
-      return {
+      return Immutable.Map({
         sentAt: action.sentAt,
         body: action.body,
         author: action.author,
         localId: action.localId,
         state: 'PENDING',
-      };
+      });
     case 'SERVER_RECEIVED_MESSAGE':
-      if (state.localId === action.localId) {
-        return Object.assign(state, {
+      if (state.get('localId') === action.localId) {
+        return state.merge({
           id: action.id,
           localId: null,
           state: 'RECEIVED',
@@ -20,8 +22,8 @@ const message = (state, action) => {
       }
       return state;
     case 'SERVER_REJECTED_MESSAGE':
-      if (state.localId === action.localId) {
-        return Object.assign(state, {
+      if (state.get('localId') === action.localId) {
+        return state.merge({
           id: action.id,
           localId: null,
           state: 'REJECTED',
@@ -36,10 +38,7 @@ const message = (state, action) => {
 const messages = (state = initialState, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
-      return [
-        ...state,
-        message(undefined, action),
-      ];
+      return state.push(message(undefined, action));
     case 'SERVER_RECEIVED_MESSAGE':
     case 'SERVER_REJECTED_MESSAGE':
       return state.map(m =>

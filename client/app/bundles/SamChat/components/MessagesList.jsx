@@ -1,23 +1,24 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import Message from './message';
 
 const messageKey = (message) => {
-  if (message.id) {
-    return message.id;
+  if (message.has('id')) {
+    return message.get('id');
   }
-  return `local_${message.localId}`;
+  return `local_${message.get('localId')}`;
 };
 
-const MessagesList = ({ messages }) => {
-  return <ul className="messages-list">
+const MessagesList = ({ messages }) => (
+  <ul className="messages-list">
     {
       messages.map(message => <Message message={message} key={messageKey(message)} />)
     }
   </ul>
-};
+);
 
 MessagesList.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+  messages: ImmutablePropTypes.list.isRequired,
+};
 
-export default MessagesList
+export default MessagesList;

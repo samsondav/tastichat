@@ -3,7 +3,7 @@ import MessagesList from '../components/MessagesList'
 
 const mapStateToProps = applicationState => {
   return {
-    messages: applicationState.messages
+    messages: applicationState.$$messages
   }
 }
 
