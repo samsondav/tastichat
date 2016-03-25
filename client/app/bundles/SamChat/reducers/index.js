@@ -1,8 +1,10 @@
-import messages from './messages';
-import { combineReducers } from 'redux'
+import messagesReducer from './messagesReducer';
+import nicknameReducer from './nicknameReducer';
+import { combineReducers } from 'redux';
 
 const samChatReducer = combineReducers({
-  $$messages: messages,
-})
+  $$messages: messagesReducer,
+  nickname: nicknameReducer,
+});
 
 export default samChatReducer;
