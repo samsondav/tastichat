@@ -1,0 +1,11 @@
+.messages-list {
+  &__message {
+    &--sending {
+      color: grey;
+    }
+
+    &--failed {
+      color: red;
+    }
+  }
+}

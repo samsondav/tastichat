@@ -10,7 +10,7 @@ const messageClass = (message) => {
     case 'REJECTED':
       return 'messages-list__message--failed';
     default:
-      throw new Error `unknown message state: ${message.get('state')}`;
+      return null;
   }
 };
 

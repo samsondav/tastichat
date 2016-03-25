@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.0'
 
 gem "react_on_rails", "~> 4"
 
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
