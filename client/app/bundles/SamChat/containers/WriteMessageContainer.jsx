@@ -1,15 +1,25 @@
-import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { sendMessage } from '../actions/sendMessage';
 import WriteMessage from '../components/WriteMessage';
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => ({
+  nickname: state.nickname,
+});
+
+// Use mergeProps here so we can enclose the nickname into the sendMessage
+// function
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  const author = stateProps.nickname;
+
   return {
-    sendMessage: (author, body, submitTime) => dispatch(sendMessage(author, body, submitTime)),
+    ...ownProps,
+    sendMessage: (body, submitTime) => dispatch(sendMessage(author, body, submitTime)),
   };
 };
 
 export default connect(
+  mapStateToProps,
   null,
-  mapDispatchToProps
+  mergeProps,
 )(WriteMessage);

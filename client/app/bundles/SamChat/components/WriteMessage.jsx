@@ -3,24 +3,23 @@ import _ from 'lodash';
 
 class WriteMessage extends React.Component {
   static propTypes = {
-    sendMessage: PropTypes.func.isRequired
+    sendMessage: PropTypes.func.isRequired,
   };
 
   constructor(props, context) {
     super(props, context);
     this.state = {
-      authorText: '',
       bodyText: '',
     };
-    _.bindAll(this, 'handleButtonClick');
+    _.bindAll(this, 'handleSubmit');
   }
 
-  handleButtonClick(_e) {
-    const author = this.state.authorText;
+  handleSubmit(e) {
+    e.preventDefault(); // do not allow browser to make a post
     const body = this.state.bodyText;
     const submitTime = new Date;
 
-    this.props.sendMessage(author, body, submitTime);
+    this.props.sendMessage(body, submitTime);
   }
 
   createChangeHandler(key) {
@@ -29,16 +28,7 @@ class WriteMessage extends React.Component {
 
   render() {
     return (
-      <form className="write-message">
-        <label>
-          Name:
-          <input
-            type="text"
-            className="write-message__author"
-            value={this.state.authorText}
-            onChange={this.createChangeHandler('authorText')}
-          />
-        </label>
+      <form className="write-message" onSubmit={this.handleSubmit}>
         <label>
           Message:
           <input
@@ -49,9 +39,8 @@ class WriteMessage extends React.Component {
           />
         </label>
       <button
-        type="button"
+        type="submit"
         className="write-message__button"
-        onClick={this.handleButtonClick}
       >
         Send Message
       </button>
