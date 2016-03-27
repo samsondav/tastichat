@@ -3,6 +3,10 @@
   width: 100%;
   position: absolute;
   transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+  // HACK: because invisible elements still take up space, we have to peg the
+  // page to the top to avoid it being pushed down. Toggling display: none;
+  // would be better, but there is no way to transition this with pure CSS.
+  top: 0;
 }
 
 .page--visible {

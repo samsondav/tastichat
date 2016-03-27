@@ -14,6 +14,8 @@ class WriteMessage extends React.Component {
   handleSubmit(e) {
     e.preventDefault(); // do not allow browser to make a post
     const body = this._input.value;
+    this._input.value = '';
+
     const submitTime = new Date;
 
     this.props.sendMessage(body, submitTime);
@@ -29,11 +31,13 @@ class WriteMessage extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}>
         <input
+          placeholder="Say hello..."
+          className="write-message"
           ref={node => this._input = node}
           type="text"
-          className="write-message__body"
         />
       </form>
     );
