@@ -3,10 +3,10 @@ import MessagesListContainer from '../containers/MessagesListContainer';
 import WriteMessageContainer from '../containers/WriteMessageContainer';
 
 const ChatWindow = () => (
-  <div className="chat-window">
+  <page className="chat-window">
     <WriteMessageContainer />
     <MessagesListContainer />
-  </div>
+  </page>
 );
 
 export default ChatWindow;

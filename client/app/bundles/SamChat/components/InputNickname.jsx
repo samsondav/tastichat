@@ -1,13 +1,20 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
-const InputNickname = ({ initialNickname, dispatchName }) => {
+const InputNickname = ({ initialNickname, dispatchName, visible }) => {
   let input;
-  const handleKeyPress = (e) => e.key === 'Enter' ? dispatchName(input.value) : true;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatchName(input.value);
+  };
+
+  const visibilityClass = visible ? 'page--visible' : 'page--hidden';
+  const elementClasses = classNames('page', 'login', visibilityClass);
 
   return (
-    <div className="page login">
-      <form className="login__form">
+    <page className={elementClasses}>
+      <form className="login__form" onSubmit={handleSubmit}>
         <h3 className="login__label">What is your nickname?</h3>
         <input
           ref={node => {
@@ -15,11 +22,10 @@ const InputNickname = ({ initialNickname, dispatchName }) => {
           }}
           type="text"
           className="login__username-input"
-          onKeyPress={handleKeyPress}
           defaultValue={initialNickname}
         />
       </form>
-    </div>
+    </page>
   );
 };
 

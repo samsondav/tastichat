@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-
   scope constraints: { format: :html } do
     get 'samchat', to: 'sam_chat#index'
   end
