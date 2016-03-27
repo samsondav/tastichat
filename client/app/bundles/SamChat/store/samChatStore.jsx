@@ -1,28 +1,27 @@
-import { createStore  } from 'redux';
+import { createStore } from 'redux';
 import samChatReducer from '../reducers';
-import applyMiddleware from './applyMiddleware'
+import applyMiddleware from './applyMiddleware';
 import Immutable from 'immutable';
+import MessageRecord from './MessageRecord';
 
-
-const importMessages = messages => {
-  // const messagesArray = messages.map(message => {
-  //   const newObject = Object.assign(message, { sentAt: new Date(message.sent_at) })
-  //   delete newObject.sent_at;
-  //   return newObject;
-  // });
-  const $$messages = Immutable.fromJS(messages);
-  return $$messages.map(
-    $$message =>
-      $$message.set(
-        'sentAt', new Date($$message.get('sent_at'))
-      ).remove('sent_at')
+const importMessages = messages =>
+  Immutable.List(
+    messages.map(
+      message => {
+        const messageRecord = new MessageRecord(message);
+        return messageRecord.set('sentAt', new Date(message.sent_at));
+      }
+    )
   );
-};
 
 // creates the application store from initial props
-export default props =>
-  createStore(
+export default ({ messages }) => {
+  const initialMessages = importMessages(messages);
+  return createStore(
     samChatReducer,
-    { $$messages: importMessages(props.messages) },
+    {
+      $$messages: initialMessages,
+    },
     applyMiddleware
   );
+}
