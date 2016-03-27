@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import SamChat from '../components/SamChat';
+import SamChatContainer from '../containers/SamChatContainer';
 import createStoreFromProps from '../store/samChatStore'
 import DevTools from '../containers/DevTools';
 
@@ -8,7 +8,7 @@ import DevTools from '../containers/DevTools';
 export default props => {
   return <Provider store={createStoreFromProps(props)}>
   <div>
-    <SamChat />
+    <SamChatContainer />
     <DevTools />
   </div>
   </Provider>
