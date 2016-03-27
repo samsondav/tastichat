@@ -13,13 +13,14 @@ const getCSRFToken = () => {
   return token ? token.content : null;
 };
 
-const addMessage = (author, body, submitTime, localId) => {
+const addMessage = (author, body, sentAt, localId, colour) => {
   return {
     type: 'SEND_MESSAGE',
-    author: author,
-    body: body,
-    sentAt: submitTime,
-    localId: localId,
+    sentAt,
+    author,
+    body,
+    localId,
+    colour
   };
 };
 
@@ -40,10 +41,10 @@ const serverRejectedMessage = (localId) => {
 
 let localId = 0;
 
-export const sendMessage = (author, body, submitTime = new Date) =>
+export const sendMessage = (author, body, colour, submitTime = new Date) =>
   dispatch => {
     const messageLocalId = localId++;
-    dispatch(addMessage(author, body, submitTime, messageLocalId));
+    dispatch(addMessage(author, body, submitTime, messageLocalId, colour));
 
     // TODO: factor into a request/post library
     return request({
@@ -54,7 +55,7 @@ export const sendMessage = (author, body, submitTime = new Date) =>
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        message: { author, body, sent_at: submitTime.toISOString() },
+        message: { author, body, sent_at: submitTime.toISOString(), colour },
       },
     }).then(res => {
       const canonicalId = res.data.message.id;

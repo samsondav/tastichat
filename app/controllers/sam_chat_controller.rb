@@ -18,6 +18,6 @@ class SamChatController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:author, :body, :sent_at)
+    params.require(:message).permit(:author, :body, :sent_at, :colour)
   end
 end

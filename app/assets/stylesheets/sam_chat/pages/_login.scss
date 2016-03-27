@@ -1,7 +1,6 @@
 @mixin login-text {
   font-weight: 100;
   font-size: 200%;
-  color: white;
 }
 
 .login {
@@ -27,7 +26,7 @@
 
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid black;
   outline: none;
   padding-bottom: 15px;
   text-align: center;

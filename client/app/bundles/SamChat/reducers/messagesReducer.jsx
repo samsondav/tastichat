@@ -10,6 +10,7 @@ const message = (state, action) => {
         body: action.body,
         author: action.author,
         localId: action.localId,
+        colour: action.colour,
         state: 'PENDING',
       });
     case 'SERVER_RECEIVED_MESSAGE':

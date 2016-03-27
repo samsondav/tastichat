@@ -18,7 +18,11 @@ const Message = ({ message }) => (
     <li
       className={messageClass(message)}
     >
-      {message.get('author')} said "{message.get('body')}" at {message.get('sentAt').toString()}
+      <span
+        style={{ color: message.get('colour') }}
+      >
+        {message.get('author')}
+      </span>&nbsp;said "{message.get('body')}" at {message.get('sentAt').toString()}
     </li>
 );
 
@@ -26,6 +30,7 @@ const messageShape = ImmutablePropTypes.contains({
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   sentAt: PropTypes.instanceOf(Date),
+  colour: PropTypes.string.isRequired,
 }).isRequired;
 
 Message.propTypes = {

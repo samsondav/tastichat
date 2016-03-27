@@ -12,11 +12,12 @@ const mapStateToProps = state => ({
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
   const author = stateProps.nickname;
+  const colour = stateProps.userColour;
 
   return {
     ...stateProps,
     ...ownProps,
-    sendMessage: (body, submitTime) => dispatch(sendMessage(author, body, submitTime)),
+    sendMessage: (body, submitTime) => dispatch(sendMessage(author, body, colour, submitTime)),
   };
 };
 
