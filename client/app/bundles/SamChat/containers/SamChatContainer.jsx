@@ -11,7 +11,7 @@ const SamChat = ({ nickname }) => {
   return (
     <div>
       <InputNicknameContainer visible={showLoginPage} />
-      <ChatWindow />
+      <ChatWindow visible={!showLoginPage} />
     </div>
   )
 };

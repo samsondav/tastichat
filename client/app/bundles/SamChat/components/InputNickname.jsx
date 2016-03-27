@@ -23,6 +23,7 @@ const InputNickname = ({ initialNickname, dispatchName, visible }) => {
           type="text"
           className="login__username-input"
           defaultValue={initialNickname}
+          autoFocus={true}
         />
       </form>
     </page>
