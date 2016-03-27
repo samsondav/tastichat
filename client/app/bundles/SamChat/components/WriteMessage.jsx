@@ -26,6 +26,7 @@ class WriteMessage extends React.Component {
     return event => this.setState({ [key]: event.target.value });
   }
 
+  // Set focus when name changes (it's only set once so this is ok)
   componentDidUpdate() {
     this._input.focus();
   }

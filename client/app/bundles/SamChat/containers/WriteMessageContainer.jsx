@@ -3,6 +3,7 @@ import { sendMessage } from '../actions/sendMessage';
 import WriteMessage from '../components/WriteMessage';
 
 const mapStateToProps = state => ({
+  nickname: state.nickname, // must be subscribed to name change so we know when to focus
   userColour: state.colour,
 });
 
