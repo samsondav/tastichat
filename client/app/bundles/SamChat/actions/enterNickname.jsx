@@ -1,4 +1,3 @@
-// TODO: write me!!!
 const enterNickname = nickname => {
   return {
     type: 'ENTER_NICKNAME',

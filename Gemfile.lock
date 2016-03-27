@@ -207,6 +207,7 @@ DEPENDENCIES
   bitters
   bourbon
   coffee-rails (~> 4.1.0)
+  concurrent-ruby
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)

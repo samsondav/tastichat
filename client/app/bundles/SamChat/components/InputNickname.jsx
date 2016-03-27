@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const InputNickname = ({ initialNickname, dispatchName, visible }) => {
+const InputNickname = ({ initialNickname, dispatchName, visible, userColour }) => {
   let input;
 
   const handleSubmit = (e) => {
@@ -13,7 +13,10 @@ const InputNickname = ({ initialNickname, dispatchName, visible }) => {
   const elementClasses = classNames('page', 'login', visibilityClass);
 
   return (
-    <page className={elementClasses}>
+    <page
+      className={elementClasses}
+      style={{ backgroundColor: userColour }}
+    >
       <form className="login__form" onSubmit={handleSubmit}>
         <h3 className="login__label">What is your nickname?</h3>
         <input

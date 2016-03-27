@@ -15,12 +15,13 @@ const importMessages = messages =>
   );
 
 // creates the application store from initial props
-export default ({ messages }) => {
+export default ({ messages, colour }) => {
   const initialMessages = importMessages(messages);
   return createStore(
     samChatReducer,
     {
       $$messages: initialMessages,
+      colour: colour,
     },
     applyMiddleware
   );

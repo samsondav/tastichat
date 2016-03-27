@@ -37,6 +37,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters', require: false
 gem "autoprefixer-rails"
+gem 'concurrent-ruby', require: 'concurrent'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

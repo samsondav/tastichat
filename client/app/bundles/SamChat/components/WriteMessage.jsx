@@ -4,6 +4,7 @@ import _ from 'lodash';
 class WriteMessage extends React.Component {
   static propTypes = {
     sendMessage: PropTypes.func.isRequired,
+    userColour: PropTypes.string.isRequired,
   };
 
   constructor(props, context) {
@@ -34,6 +35,9 @@ class WriteMessage extends React.Component {
       <form
         onSubmit={this.handleSubmit}>
         <input
+          style={{
+            borderColor: this.props.userColour,
+          }}
           placeholder="Say hello..."
           className="write-message"
           ref={node => this._input = node}

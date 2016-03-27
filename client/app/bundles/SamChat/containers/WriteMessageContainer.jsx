@@ -3,7 +3,7 @@ import { sendMessage } from '../actions/sendMessage';
 import WriteMessage from '../components/WriteMessage';
 
 const mapStateToProps = state => ({
-  nickname: state.nickname,
+  userColour: state.colour,
 });
 
 // Use mergeProps here so we can enclose the nickname into the sendMessage
@@ -13,6 +13,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const author = stateProps.nickname;
 
   return {
+    ...stateProps,
     ...ownProps,
     sendMessage: (body, submitTime) => dispatch(sendMessage(author, body, submitTime)),
   };

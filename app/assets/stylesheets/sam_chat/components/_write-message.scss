@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  border: 8px solid black;
+  border: 8px solid; // Colour is set in React programmatically
   height: 50px;
   padding-left: 8px;
 }

@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 import InputNickname from '../components/InputNickname';
 import enterNickname from '../actions/enterNickname';
 
-const mapStateToProps = state => ({ initialNickname: state.nickname });
+const mapStateToProps = state => ({
+  initialNickname: state.nickname,
+  userColour: state.colour,
+});
 
 const mapDispatchToProps = dispatch => ({
   dispatchName: newNickame => dispatch(enterNickname(newNickame)),

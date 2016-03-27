@@ -1,7 +1,8 @@
 class SamChatController < ApplicationController
   def index
     @sam_chat_props = {
-      messages: Message.all.as_json
+      messages: Message.all.as_json,
+      colour: ColourGenerator.new.next_pleasing_colour
     }
   end
 

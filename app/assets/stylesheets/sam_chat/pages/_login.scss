@@ -1,7 +1,3 @@
-$red: random(128);
-$green: random(128);
-$blue: random(128);
-
 @mixin login-text {
   font-weight: 100;
   font-size: 200%;
@@ -9,7 +5,8 @@ $blue: random(128);
 }
 
 .login {
-  background-color: rgb($red, $green, $blue); // random background color!
+  // background-color: rgb($red, $green, $blue); // random background color!
+  // Colour is set programmatically in React
 }
 
 .login__form {
