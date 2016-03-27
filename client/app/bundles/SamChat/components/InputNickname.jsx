@@ -6,20 +6,19 @@ const InputNickname = ({ initialNickname, dispatchName }) => {
 
 
   return (
-    <div className="input-nickname">
-      <label htmlFor="input-nickname__input" className="input-nickname_label">
-        What is your nickname?
+    <div className="page login">
+      <form className="login__form">
+        <h3 className="login__label">What is your nickname?</h3>
         <input
           ref={node => {
             input = node;
           }}
-          id="input-nickname__input"
           type="text"
-          className="input-nickname__input"
+          className="login__username-input"
           onKeyPress={handleKeyPress}
           defaultValue={initialNickname}
         />
-      </label>
+      </form>
     </div>
   );
 };

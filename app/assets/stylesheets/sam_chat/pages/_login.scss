@@ -1,0 +1,38 @@
+$red: random(128);
+$green: random(128);
+$blue: random(128);
+
+@mixin login-text {
+  font-weight: 100;
+  font-size: 200%;
+  color: white;
+}
+
+.login {
+  background-color: rgb($red, $green, $blue); // random background color!
+}
+
+.login__form {
+  height: 100px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.login__label {
+  @include login-text;
+}
+
+.login__username-input {
+  @include login-text;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  padding-bottom: 15px;
+  text-align: center;
+  width: 400px;
+}

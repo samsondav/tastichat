@@ -8,10 +8,12 @@
 // 3. Base stuff
 
 // 4. Layout-related sections
+@import 'layout/page';
 
 // 5. Components
 @import 'components/messages-list';
 
 // 6. Page-specific styles
+@import 'pages/login';
 
 // 7. Themes

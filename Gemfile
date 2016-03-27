@@ -29,11 +29,14 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+## React integration
 gem "react_on_rails", "~> 4"
 
+## CSS
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem "autoprefixer-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

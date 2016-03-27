@@ -9,7 +9,7 @@ export default props => {
   return <Provider store={createStoreFromProps(props)}>
   <div>
     <SamChatContainer />
-    <DevTools />
+    {/*<DevTools />*/}
   </div>
   </Provider>
 };
