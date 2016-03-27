@@ -35,7 +35,7 @@ gem "react_on_rails", "~> 4"
 ## CSS
 gem 'bourbon'
 gem 'neat'
-gem 'bitters'
+gem 'bitters', require: false
 gem "autoprefixer-rails"
 
 group :development, :test do
