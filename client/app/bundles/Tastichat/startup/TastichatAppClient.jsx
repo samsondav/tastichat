@@ -1,13 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import SamChatContainer from '../containers/SamChatContainer';
-import createStoreFromProps from '../store/samChatStore'
+import RootContainer from '../containers/RootContainer';
+import createStoreFromProps from '../store/applicationStore'
 import DevTools from '../containers/DevTools';
 
-// SamChatApp is a function that takes props and returns a react component
 export default props => {
   return <Provider store={createStoreFromProps(props)}>
-    <SamChatContainer />
+    <RootContainer />
     {/*<DevTools />*/}
   </Provider>
 };

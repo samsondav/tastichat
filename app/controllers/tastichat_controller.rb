@@ -1,6 +1,6 @@
-class SamChatController < ApplicationController
+class TastichatController < ApplicationController
   def index
-    @sam_chat_props = {
+    @tastichat_props = {
       messages: Message.all.as_json,
       colour: ColourGenerator.new.next_pleasing_colour
     }

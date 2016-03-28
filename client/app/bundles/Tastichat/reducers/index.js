@@ -5,10 +5,10 @@ import { combineReducers } from 'redux';
 // it is not currently possible for the user to change his colour
 const colourReducer = (state = '#000000') => state;
 
-const samChatReducer = combineReducers({
+const rootReducer = combineReducers({
   $$messages,
   nickname,
   colour: colourReducer,
 });
 
-export default samChatReducer;
+export default rootReducer;

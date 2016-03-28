@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import samChatReducer from '../reducers';
+import rootReducer from '../reducers';
 import applyMiddleware from './applyMiddleware';
 import Immutable from 'immutable';
 import MessageRecord from './MessageRecord';
@@ -18,7 +18,7 @@ const importMessages = messages =>
 export default ({ messages, colour }) => {
   const initialMessages = importMessages(messages);
   return createStore(
-    samChatReducer,
+    rootReducer,
     {
       $$messages: initialMessages,
       colour: colour,

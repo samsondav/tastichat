@@ -5,7 +5,7 @@ import InputNicknameContainer from '../containers/InputNicknameContainer';
 
 import { AnimateInOut } from 'state-transitions';
 
-const SamChat = ({ nickname }) => {
+const TastichatApp = ({ nickname }) => {
   const showLoginPage = nickname.length === 0;
 
   return (
@@ -18,4 +18,4 @@ const SamChat = ({ nickname }) => {
 
 const mapStateToProps = state => ({ nickname: state.nickname });
 
-export default connect(mapStateToProps)(SamChat);
+export default connect(mapStateToProps)(TastichatApp);
