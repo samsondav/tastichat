@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ChatWindow from '../components/ChatWindow';
-import InputNicknameContainer from '../containers/InputNicknameContainer';
 
 import { AnimateInOut } from 'state-transitions';
 
-const TastichatApp = ({ nickname }) => {
-  const showLoginPage = nickname.length === 0;
-
+const TastichatApp = () => {
   return (
     <div>
-      <InputNicknameContainer visible={showLoginPage} />
-      <ChatWindow visible={!showLoginPage} />
+      {/*<InputNicknameContainer visible={showLoginPage} />*/}
+      <ChatWindow visible={true} />
     </div>
   )
 };
 
-const mapStateToProps = state => ({ nickname: state.nickname });
-
-export default connect(mapStateToProps)(TastichatApp);
+export default connect()(TastichatApp);

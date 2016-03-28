@@ -4,7 +4,7 @@ import _ from 'lodash';
 class WriteMessage extends React.Component {
   static propTypes = {
     sendMessage: PropTypes.func.isRequired,
-    userColour: PropTypes.string.isRequired,
+    warriorColour: PropTypes.string.isRequired,
   };
 
   constructor(props, context) {
@@ -42,7 +42,7 @@ class WriteMessage extends React.Component {
         onSubmit={this.handleSubmit}>
         <input
           style={{
-            borderColor: this.props.userColour,
+            borderColor: this.props.warriorColour,
           }}
           placeholder="Say hello..."
           className="write-message"

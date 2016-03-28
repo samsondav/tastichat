@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import MessageRecord from '../store/MessageRecord';
 
 const messageClass = (message) => {
   switch (message.get('state')) {
@@ -21,19 +21,12 @@ const Message = ({ message }) => (
         background: `linear-gradient(to top right, ${message.get('colour')}, #FFFFFF)`,
       }}
     >
-        {message.get('author')} said "{message.get('body')}" at {message.get('sentAt').toString()}
+        {message.get('fruit')} said "{message.get('body')}" at {message.get('sentAt').toString()}
     </li>
 );
 
-const messageShape = ImmutablePropTypes.contains({
-  author: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  sentAt: PropTypes.instanceOf(Date),
-  colour: PropTypes.string.isRequired,
-}).isRequired;
-
 Message.propTypes = {
-  message: messageShape,
+  message: PropTypes.instanceOf(MessageRecord).isRequired,
 };
 
 export default Message;

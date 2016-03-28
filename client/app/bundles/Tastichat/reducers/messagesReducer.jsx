@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import MessageRecord from '../store/MessageRecord';
+import Config from 'lib/Config'
 
 const initialState = Immutable.List([]);
 
@@ -9,9 +10,8 @@ const message = (state, action) => {
       return new MessageRecord({
         sentAt: action.sentAt,
         body: action.body,
-        author: action.author,
+        fruit: Config.get('FRUIT'),
         localId: action.localId,
-        colour: action.colour,
         state: 'PENDING',
       });
     case 'SERVER_RECEIVED_MESSAGE':

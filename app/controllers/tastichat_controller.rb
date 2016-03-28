@@ -2,9 +2,8 @@ class TastichatController < ApplicationController
   def index
     @tastichat_props = {
       messages: Message.all.as_json,
-      config: {
-        WARRIOR: FruitWarrior.next.as_json
-      }
+      warriors: FruitWarrior.all_keyed_by_fruit.as_json,
+      thisFruit: FruitWarrior.next.fruit
     }
   end
 

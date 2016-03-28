@@ -3,6 +3,7 @@ import rootReducer from '../reducers';
 import applyMiddleware from './applyMiddleware';
 import Immutable from 'immutable';
 import MessageRecord from './MessageRecord';
+import WarriorRecord from './WarriorRecord';
 
 const importMessages = messages =>
   Immutable.List(
@@ -14,15 +15,28 @@ const importMessages = messages =>
     )
   );
 
+const importWarriors = warriors => {
+  const warriorRecords = {};
+
+  Object.keys(warriors).forEach(fruit => {
+    const warrior = warriors[fruit];
+    warriorRecords[fruit] = new WarriorRecord(warrior);
+  });
+debugger;
+  return Immutable.Map(warriorRecords);
+};
+
 // creates the application store from initial props
-export default ({ messages, colour }) => {
-  const initialMessages = importMessages(messages);
+export default ({ messages, warriors, thisFruit }) => {
+  const $$messages = importMessages(messages);
+  const $$warriors = importWarriors(warriors);
   return createStore(
     rootReducer,
     {
-      $$messages: initialMessages,
-      colour: colour,
+      $$messages,
+      $$warriors,
+      thisFruit,
     },
     applyMiddleware
   );
-}
+};

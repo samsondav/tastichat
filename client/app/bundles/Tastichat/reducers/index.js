@@ -1,14 +1,11 @@
 import $$messages from './messagesReducer';
-import nickname from './nicknameReducer';
+import $$warriors from './fruitsReducer';
 import { combineReducers } from 'redux';
-
-// it is not currently possible for the user to change his colour
-const colourReducer = (state = '#000000') => state;
 
 const rootReducer = combineReducers({
   $$messages,
-  nickname,
-  colour: colourReducer,
+  $$warriors,
+  thisFruit: (state = 'ghost', action) => state,
 });
 
 export default rootReducer;
