@@ -15,6 +15,11 @@ class WriteMessage extends React.Component {
   handleSubmit(e) {
     e.preventDefault(); // do not allow browser to make a post
     const body = this._input.value;
+
+    if (body == '') {
+      return null; // do nothing if the user hasn't actually entered a message
+    }
+
     this._input.value = '';
 
     const submitTime = new Date;

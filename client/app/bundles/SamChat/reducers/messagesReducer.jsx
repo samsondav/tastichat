@@ -18,7 +18,6 @@ const message = (state, action) => {
       if (state.get('localId') === action.localId) {
         return state.merge({
           id: action.id,
-          localId: null,
           state: 'RECEIVED',
         });
       }
@@ -27,7 +26,6 @@ const message = (state, action) => {
       if (state.get('localId') === action.localId) {
         return state.merge({
           id: action.id,
-          localId: null,
           state: 'REJECTED',
         });
       }

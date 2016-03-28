@@ -17,7 +17,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...stateProps,
     ...ownProps,
-    sendMessage: (body, submitTime) => dispatch(sendMessage(author, body, colour, submitTime)),
+    sendMessage: (body, submitTime) => {
+      dispatch(sendMessage(author, body, colour, submitTime));
+    },
   };
 };
 
