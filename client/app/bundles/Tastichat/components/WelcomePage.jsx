@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import WarriorRecord from '../store/WarriorRecord';
 
-const InputNickname = ({ initialNickname, dispatchName, visible, userColour }) => {
-  let input;
-
+const WelcomePage = ({ thisWarrior, visible }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatchName(input.value);
@@ -15,7 +14,7 @@ const InputNickname = ({ initialNickname, dispatchName, visible, userColour }) =
   return (
     <page
       className={elementClasses}
-      style={{ backgroundColor: userColour }}
+      style={{ backgroundColor: thisWarrior.colour }}
     >
       <form className="login__form" onSubmit={handleSubmit}>
         <h3 className="login__label">What is your nickname?</h3>
@@ -25,7 +24,7 @@ const InputNickname = ({ initialNickname, dispatchName, visible, userColour }) =
           }}
           type="text"
           className="login__username-input"
-          defaultValue={initialNickname}
+          defaultValue={thisWarrior}
           autoFocus={true}
         />
       </form>
@@ -33,9 +32,9 @@ const InputNickname = ({ initialNickname, dispatchName, visible, userColour }) =
   );
 };
 
-InputNickname.propTypes = {
-  initialNickname: PropTypes.string.isRequired,
-  dispatchName: PropTypes.func.isRequired,
+WelcomePage.propTypes = {
+  thisWarrior: PropTypes.instanceOf(WarriorRecord).isRequired,
+  visible: PropTypes.bool.isRequired,
 };
 
-export default InputNickname;
+export default WelcomePage;

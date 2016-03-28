@@ -3,7 +3,7 @@ import MessagesListContainer from '../containers/MessagesListContainer';
 import WriteMessageContainer from '../containers/WriteMessageContainer';
 import classNames from 'classnames';
 
-const ChatWindow = ({ visible }) => {
+export default ({ visible }) => {
   const visibilityClass = visible ? 'page--visible' : 'page--hidden';
   const elementClasses = classNames('chat-window', visibilityClass);
 
@@ -14,5 +14,3 @@ const ChatWindow = ({ visible }) => {
     </page>
   );
 };
-
-export default ChatWindow;

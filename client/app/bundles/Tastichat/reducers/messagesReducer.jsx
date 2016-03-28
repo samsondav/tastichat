@@ -1,5 +1,4 @@
 import Immutable from 'immutable';
-import Config from 'lib/Config'
 
 const initialState = Immutable.List([]);
 

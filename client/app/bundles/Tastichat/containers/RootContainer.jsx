@@ -1,16 +1,24 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import ChatWindow from '../components/ChatWindow';
+import ChatPage from '../components/ChatPage';
+import WelcomePage from '../components/WelcomePage';
+import _ from 'lodash';
 
-import { AnimateInOut } from 'state-transitions';
+const mapStateToProps = state => ({
+  currentPage: state.currentPage,
+  thisWarrior: state.$$warriors.get(state.thisFruit),
+});
 
-const TastichatApp = () => {
+const TastichatApp = ({ currentPage, thisWarrior }) => {
   return (
     <div>
-      {/*<InputNicknameContainer visible={showLoginPage} />*/}
-      <ChatWindow visible={true} />
+      <WelcomePage
+        visible={currentPage === 'welcome'}
+        thisWarrior={thisWarrior}
+      />
+      <ChatPage visible={currentPage === 'chat'} />
     </div>
   )
 };
 
-export default connect()(TastichatApp);
+export default connect(mapStateToProps)(TastichatApp);
