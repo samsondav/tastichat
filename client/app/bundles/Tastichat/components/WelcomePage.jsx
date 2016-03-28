@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import WarriorRecord from '../store/WarriorRecord';
 
 const WelcomePage = ({ thisWarrior, visible }) => {
+  let input;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatchName(input.value);
@@ -17,16 +19,17 @@ const WelcomePage = ({ thisWarrior, visible }) => {
       style={{ backgroundColor: thisWarrior.colour }}
     >
       <form className="login__form" onSubmit={handleSubmit}>
-        <h3 className="login__label">What is your nickname?</h3>
-        <input
+        <h3 className="login__label">Welcome back, {thisWarrior.name}</h3>
+        <img className="login__avatar" src={thisWarrior.avatarUrl} />
+        <button
           ref={node => {
             input = node;
           }}
-          type="text"
-          className="login__username-input"
-          defaultValue={thisWarrior}
-          autoFocus={true}
-        />
+          type="button"
+          className="login__button"
+        >
+          Continue plotting with other fruit samurai
+        </button>
       </form>
     </page>
   );

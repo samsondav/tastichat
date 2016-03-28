@@ -14,7 +14,7 @@ class FruitWarrior
     banana: '#FFE135',
     blueberries: '#4F86F7',
     lemon: '#E9FF36',
-    orange: '#FF4500',
+    pear: '#FF4500',
     pineapple: '#614126'
   }
 
@@ -64,11 +64,12 @@ class FruitWarrior
     freeze
   end
 
-  def as_json
+  def as_json(root_url = '')
     {
       fruit: fruit,
       name: name,
-      colour: colour
+      colour: colour,
+      avatarUrl: root_url + "/samurai/#{fruit}.png"
     }
   end
 end

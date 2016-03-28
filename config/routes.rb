@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'tastichat#index'
 
   scope constraints: { format: :html } do
-    get 'samchat', to: 'tastichat#index'
+    get 'tastichat', to: 'tastichat#index'
   end
 
   scope constraints: { format: :json } do
