@@ -18,7 +18,7 @@ const WelcomePage = ({ thisWarrior, visible }) => {
       className={elementClasses}
       style={{ backgroundColor: thisWarrior.colour }}
     >
-      <form className="login__form" onSubmit={handleSubmit}>
+      <div className="login__box">
         <h3 className="login__label">Welcome back, {thisWarrior.name}</h3>
         <img className="login__avatar" src={thisWarrior.avatarUrl} />
         <button
@@ -30,7 +30,7 @@ const WelcomePage = ({ thisWarrior, visible }) => {
         >
           Continue plotting with other fruit samurai
         </button>
-      </form>
+      </div>
     </page>
   );
 };

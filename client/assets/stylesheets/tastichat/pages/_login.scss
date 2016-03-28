@@ -1,0 +1,30 @@
+.login {
+  // background-color: rgb($red, $green, $blue); // random background color!
+  // Colour is set programmatically in React
+}
+
+.login__box {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  // position: absolute;
+  text-align: center;
+  // top: 25%;
+  width: 100%;
+}
+
+.login__label {
+  font-weight: 100;
+  font-size: 200%;
+}
+
+.login__button {
+  display: block;
+  margin: auto;
+  width: 150px;
+}
+
+.login__avatar {
+  display: block;
+  margin: auto;
+  width: 300px;
+}
