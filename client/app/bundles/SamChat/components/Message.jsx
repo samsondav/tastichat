@@ -4,11 +4,11 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 const messageClass = (message) => {
   switch (message.get('state')) {
     case 'RECEIVED':
-      return 'messages-list__message--sent';
+      return 'messages-list__message messages-list__message--sent';
     case 'PENDING':
-      return 'messages-list__message--sending';
+      return 'messages-list__message messages-list__message--sending';
     case 'REJECTED':
-      return 'messages-list__message--failed';
+      return 'messages-list__message messages-list__message--failed';
     default:
       return null;
   }
@@ -17,12 +17,11 @@ const messageClass = (message) => {
 const Message = ({ message }) => (
     <li
       className={messageClass(message)}
+      style={{
+        background: `linear-gradient(to top, ${message.get('colour')}, #FFFFFF)`,
+      }}
     >
-      <span
-        style={{ color: message.get('colour') }}
-      >
-        {message.get('author')}
-      </span>&nbsp;said "{message.get('body')}" at {message.get('sentAt').toString()}
+        {message.get('author')} said "{message.get('body')}" at {message.get('sentAt').toString()}
     </li>
 );
 

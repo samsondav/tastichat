@@ -1,11 +1,12 @@
 import Immutable from 'immutable';
+import MessageRecord from '../store/MessageRecord';
 
 const initialState = Immutable.List([]);
 
 const message = (state, action) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
-      return Immutable.Map({
+      return new MessageRecord({
         sentAt: action.sentAt,
         body: action.body,
         author: action.author,

@@ -1,4 +1,4 @@
-const initialState = '';
+const initialState = 'removeme';
 
 const nickname = (state = initialState, action) => {
   switch (action.type) {
