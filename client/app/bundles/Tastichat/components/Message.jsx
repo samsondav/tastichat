@@ -17,9 +17,9 @@ const messageClass = (message) => {
 const Message = ({ message }) => (
     <li
       className={messageClass(message)}
-      style={{
-        background: `linear-gradient(to top right, ${message.get('colour')}, #FFFFFF)`,
-      }}
+//      style={{
+//        background: `linear-gradient(to top right, ${message.get('colour')}, #FFFFFF)`,
+//      }}
     >
         {message.get('fruit')} said "{message.get('body')}" at {message.get('sentAt').toString()}
     </li>

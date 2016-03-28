@@ -19,6 +19,6 @@ class TastichatController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:author, :body, :sent_at, :colour)
+    params.require(:message).permit(:body, :sent_at, :fruit)
   end
 end

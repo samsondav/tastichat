@@ -1,3 +1,4 @@
+import MessageRecord from '../store/MessageRecord';
 import request from 'axios';
 import _ from 'lodash';
 
@@ -13,12 +14,20 @@ const getCSRFToken = () => {
   return token ? token.content : null;
 };
 
-const addMessage = (body, sentAt, localId, colour) => {
+const serializeMessage = messageRecord => {
+  return {
+    sent_at: messageRecord.sentAt.toISOString(),
+    fruit: messageRecord.fruit,
+    body: messageRecord.body,
+  }
+}
+
+// ACTIONS
+
+const sendMessage = (messageRecord) => {
   return {
     type: 'SEND_MESSAGE',
-    sentAt,
-    body,
-    localId,
+    messageRecord,
   };
 };
 
@@ -39,10 +48,17 @@ const serverRejectedMessage = (localId) => {
 
 let localId = 0;
 
-export const sendMessage = (body, colour, submitTime = new Date) =>
+export default (body, fruit, submitTime = new Date) =>
   dispatch => {
     const messageLocalId = localId++;
-    dispatch(addMessage(body, submitTime, messageLocalId, colour));
+
+    const message = new MessageRecord({
+      body,
+      fruit,
+      sentAt: submitTime,
+      localId: messageLocalId,
+    });
+    dispatch(sendMessage(message));
 
     // TODO: factor into a request/post library
     return request({
@@ -53,7 +69,7 @@ export const sendMessage = (body, colour, submitTime = new Date) =>
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        message: { body, sent_at: submitTime.toISOString(), colour },
+        message: serializeMessage(message),
       },
     }).then(res => {
       const canonicalId = res.data.message.id;

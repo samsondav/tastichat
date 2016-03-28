@@ -36,7 +36,7 @@ class FruitWarrior
   end
 
   def self.fruits
-    WARRIOR_NAMES.keys
+    WARRIOR_NAMES.keys.map(&:to_s)
   end
 
   def self.all

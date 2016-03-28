@@ -22,7 +22,6 @@ const importWarriors = warriors => {
     const warrior = warriors[fruit];
     warriorRecords[fruit] = new WarriorRecord(warrior);
   });
-debugger;
   return Immutable.Map(warriorRecords);
 };
 
