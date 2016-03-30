@@ -19,7 +19,7 @@ const WelcomePage = ({ thisWarrior, dispatchLogin }) => {
           className="login__button"
           onClick={handleClick}
         >
-          Enter chat
+          Enter
         </button>
       </div>
     </page>

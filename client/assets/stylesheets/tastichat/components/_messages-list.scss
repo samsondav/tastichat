@@ -10,8 +10,7 @@
   }
 
   list-style-type: none;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px; // space for the message send box
+  padding-top: $base-spacing;
+  padding-bottom: $write-message-height;
   margin: 0;
 }

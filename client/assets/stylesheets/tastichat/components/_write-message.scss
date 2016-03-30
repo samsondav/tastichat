@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100%;
   border: 8px solid; // Colour is set in React programmatically
-  height: 50px;
+  height: $write-message-height;
   padding-left: 8px;
   outline: none;
   z-index: 1;

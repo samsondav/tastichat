@@ -4,11 +4,11 @@ import MessageRecord from '../store/MessageRecord';
 const messageClass = (message) => {
   switch (message.get('state')) {
     case 'RECEIVED':
-      return 'messages-list__message messages-list__message--sent';
+      return 'message__body message__body--sent';
     case 'PENDING':
-      return 'messages-list__message messages-list__message--sending';
+      return 'message__body message__body--sending';
     case 'REJECTED':
-      return 'messages-list__message messages-list__message--failed';
+      return 'message__body message__body--failed';
     default:
       return null;
   }

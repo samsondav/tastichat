@@ -1,9 +1,28 @@
-// The speech bubble
-.messages-list__message {
+.message {
   position: relative;
-  padding: 15px;
-  margin: 1em 1em 1em 1em;
-  border-radius: 10px;
-  margin-left: 50px;
 }
 
+// The speech bubble
+.message__body {
+  font-family: $font-stack-system;
+  padding: $base-spacing;
+  margin: 0 $base-spacing $base-spacing $base-spacing;
+  border-radius: 10px;
+}
+
+.message__body--sent {
+
+}
+
+.message__body--sending {
+
+}
+
+.message__body--failed {
+
+}
+
+// The author of the message, goes to the left
+.message__author {
+
+}
