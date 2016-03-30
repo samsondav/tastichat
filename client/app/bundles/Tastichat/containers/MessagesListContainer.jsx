@@ -3,7 +3,10 @@ import MessagesList from '../components/MessagesList'
 
 const mapStateToProps = applicationState => {
   return {
-    messages: applicationState.$$messages
+    messages: applicationState.$$messages.map(message => {
+      return message.set('colour', applicationState.$$warriors.get(message.fruit).colour)
+    }
+    ),
   }
 }
 

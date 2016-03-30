@@ -1,12 +1,11 @@
 .page {
-  // height: 100%;
-  width: 100%;
-  position: absolute;
+  @include outer-container;
+  @include fill-parent;
+
+  // width: 100%;
+  position: relative;
+  height: 100%;
   transition: visibility 0s linear 0.5s,opacity 0.5s linear;
-  // HACK: because invisible elements still take up space, we have to peg the
-  // page to the top to avoid it being pushed down. Toggling display: none;
-  // would be better, but there is no way to transition this with pure CSS.
-  top: 0;
 }
 
 .page--visible {
@@ -17,4 +16,11 @@
 .page--hidden {
   opacity: 0;
   visibility: hidden;
+
+  // HACK: because invisible elements still take up space, we have to peg the
+  // page to the top to avoid it being pushed down. Toggling display: none;
+  // would be better, but there is no way to transition this with pure CSS.
+  height: 0px;
+  position: absolute;
+  top: 0px;
 }

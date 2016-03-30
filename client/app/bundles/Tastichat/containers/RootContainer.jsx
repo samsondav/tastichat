@@ -1,21 +1,17 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ChatPage from '../components/ChatPage';
-import WelcomePage from '../components/WelcomePage';
+import WelcomePageContainer from '../containers/WelcomePageContainer';
 import _ from 'lodash';
 
 const mapStateToProps = state => ({
-  currentPage: state.currentPage,
-  thisWarrior: state.$$warriors.get(state.thisFruit),
+  currentPage: state.currentPage
 });
 
-const TastichatApp = ({ currentPage, thisWarrior }) => {
+const TastichatApp = ({ currentPage }) => {
   return (
     <div>
-      <WelcomePage
-        visible={currentPage === 'welcome'}
-        thisWarrior={thisWarrior}
-      />
+      <WelcomePageContainer visible={currentPage === 'welcome'} />
       <ChatPage visible={currentPage === 'chat'} />
     </div>
   )

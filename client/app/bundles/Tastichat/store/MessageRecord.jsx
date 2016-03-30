@@ -6,7 +6,8 @@ const MessageRecord = Record({
   sentAt: null,
   localId: null,
   state: 'RECEIVED',
-  fruit: 'ghost'
+  fruit: 'ghost',
+  colour: null,
 });
 
 export default MessageRecord;

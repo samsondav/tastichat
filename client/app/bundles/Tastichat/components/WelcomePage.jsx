@@ -2,12 +2,9 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import WarriorRecord from '../store/WarriorRecord';
 
-const WelcomePage = ({ thisWarrior, visible }) => {
-  let input;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatchName(input.value);
+const WelcomePage = ({ thisWarrior, visible, dispatchLogin }) => {
+  const handleClick = (e) => {
+    dispatchLogin();
   };
 
   const visibilityClass = visible ? 'page--visible' : 'page--hidden';
@@ -16,19 +13,18 @@ const WelcomePage = ({ thisWarrior, visible }) => {
   return (
     <page
       className={elementClasses}
-      style={{ backgroundColor: thisWarrior.colour }}
     >
-      <div className="login__box">
+      <div className="login__box"
+        style={{ backgroundColor: thisWarrior.colour }}
+      >
         <h3 className="login__label">Welcome back, {thisWarrior.name}</h3>
         <img className="login__avatar" src={thisWarrior.avatarUrl} />
         <button
-          ref={node => {
-            input = node;
-          }}
           type="button"
           className="login__button"
+          onClick={handleClick}
         >
-          Continue plotting with other fruit samurai
+          Enter chat
         </button>
       </div>
     </page>

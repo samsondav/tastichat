@@ -18,12 +18,9 @@ html, input {
 }
 
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  top: 0;
 }
 
 @import "bourbon";
 @import "neat";
+@import 'bitters/base';
 @import "tastichat/index";
