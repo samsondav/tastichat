@@ -9,12 +9,10 @@ const mapStateToProps = state => ({
 });
 
 const TastichatApp = ({ currentPage }) => {
-  return (
-    <div>
-      <WelcomePageContainer visible={currentPage === 'welcome'} />
-      <ChatPage visible={currentPage === 'chat'} />
-    </div>
-  )
+  if (currentPage === 'welcome') {
+    return <WelcomePageContainer />;
+  }
+  return <ChatPage />;
 };
 
 export default connect(mapStateToProps)(TastichatApp);

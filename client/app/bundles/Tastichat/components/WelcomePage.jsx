@@ -2,18 +2,13 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import WarriorRecord from '../store/WarriorRecord';
 
-const WelcomePage = ({ thisWarrior, visible, dispatchLogin }) => {
+const WelcomePage = ({ thisWarrior, dispatchLogin }) => {
   const handleClick = (e) => {
     dispatchLogin();
   };
 
-  const visibilityClass = visible ? 'page--visible' : 'page--hidden';
-  const elementClasses = classNames('page', 'login', visibilityClass);
-
   return (
-    <page
-      className={elementClasses}
-    >
+    <page>
       <div className="login__box"
         style={{ backgroundColor: thisWarrior.colour }}
       >
@@ -33,7 +28,6 @@ const WelcomePage = ({ thisWarrior, visible, dispatchLogin }) => {
 
 WelcomePage.propTypes = {
   thisWarrior: PropTypes.instanceOf(WarriorRecord).isRequired,
-  visible: PropTypes.bool.isRequired,
 };
 
 export default WelcomePage;
