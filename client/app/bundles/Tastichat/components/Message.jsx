@@ -2,35 +2,52 @@ import React, { PropTypes } from 'react';
 import MessageRecord from '../store/MessageRecord';
 import WarriorRecord from '../store/WarriorRecord';
 
-const messageClass = (message) => {
+const messageStatusClass = (message) => {
   switch (message.get('state')) {
     case 'RECEIVED':
-      return 'message__body message__body--sent';
+      return ' message__body--sent';
     case 'PENDING':
-      return 'message__body message__body--sending';
+      return 'message__body--sending';
     case 'REJECTED':
-      return 'message__body message__body--failed';
+      return 'message__body--failed';
     default:
       return null;
   }
 };
 
-const Message = ({ message, authorWarrior }) => (
-    <li className="message">
-      <div className="message__author">
-        <img src={message.avatarUrl} />
-        <span>{authorWarrior.name}</span>
-      </div>
-      <div
-        className={messageClass(message)}
-        style={{
-          background: `linear-gradient(to top right, ${authorWarrior.colour}, #FFFFFF)`,
-        }}
-      >
-        {message.get('fruit')} said "{message.get('body')}" at {message.get('sentAt').toString()}
-      </div>
-    </li>
+const MessageMeta = ({ authorWarrior }) => (
+  <div className="message__meta">
+    <img className="message__avatar" src={authorWarrior.avatarUrl} />
+    <div className="message__author">{authorWarrior.name}</div>
+  </div>
 );
+
+const MessageBody = ({ body, colour, sentAt, status }) => (
+  <div className={`message__body ${status}`}>
+    <div
+      className="message__bubble"
+      style={{
+        background: `linear-gradient(to top right, ${colour}, #FFFFFF)`,
+      }}
+    >
+      {body}
+    </div>
+    <div className="message__sent-at">at {sentAt.toString()}</div>
+  </div>
+);
+
+const Message = ({ message, authorWarrior }) => {
+  const { body, sentAt } = message;
+  const { colour } = authorWarrior;
+  const status = messageStatusClass(message);
+
+  return (
+    <li className="message">
+      <MessageMeta authorWarrior={authorWarrior} />
+      <MessageBody body={body} colour={colour} sentAt={sentAt} status={status} />
+    </li>
+  );
+};
 
 Message.propTypes = {
   message: PropTypes.instanceOf(MessageRecord).isRequired,

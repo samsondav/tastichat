@@ -5,13 +5,9 @@
   align-items: center;
 }
 
-// The speech bubble
 .message__body {
-  font-family: $font-stack-system;
-  padding: $base-spacing;
-  margin: 0 $base-spacing $base-spacing $base-spacing;
-  border-radius: 10px;
   flex-grow: 1;
+  position: relative;
 }
 
 .message__body--sent {
@@ -26,7 +22,36 @@
   color: $red;
 }
 
+// The speech bubble
+.message__bubble {
+  font-family: $font-stack-system;
+  padding: $base-spacing;
+  margin: 0 $base-spacing $base-spacing $base-spacing;
+  border-radius: 10px;
+}
+
+.message__sent-at {
+  position: absolute;
+  bottom: 0;
+  right: $base-spacing;
+}
+
+// Contains author and send time
+.message__meta {
+  width: 200px;
+  height: 150px;
+  padding: 0 $base-spacing $base-spacing $base-spacing;
+}
+
+.message__avatar {
+  height: 100px;
+}
+
 // The author of the message, goes to the left
 .message__author {
-  width: 200px;
+
+}
+
+.message__sent-at {
+  font-family: $font-stack-system;
 }
