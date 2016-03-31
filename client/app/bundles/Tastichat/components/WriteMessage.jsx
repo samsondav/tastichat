@@ -44,10 +44,11 @@ class WriteMessage extends React.Component {
           style={{
             borderColor: this.props.warriorColour,
           }}
-          placeholder="Say hello..."
+          placeholder="Type a reply..."
           className="write-message"
           ref={node => this._input = node}
           type="text"
+          autoFocus="autofocus"
         />
       </form>
     );

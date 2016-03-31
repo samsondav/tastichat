@@ -1,8 +1,11 @@
+$message-meta-size: 150px;
+
 .message {
   position: relative;
-  display: flex; // TODO: make flex work
+  display: flex;
   flex-direction: row;
   align-items: center;
+  // TODO: vertical align of meta and body
 }
 
 .message__body {
@@ -38,20 +41,23 @@
 
 // Contains author and send time
 .message__meta {
-  width: 200px;
-  height: 150px;
+  width: $message-meta-size;
+  height: $message-meta-size;
   padding: 0 $base-spacing $base-spacing $base-spacing;
+  text-align: center;
 }
 
+// The author's avatar
 .message__avatar {
-  height: 100px;
+  height: $small-avatar-height;
 }
 
-// The author of the message, goes to the left
+// The name of the message author
 .message__author {
-
+  font-size: 0.75em;
 }
 
 .message__sent-at {
   font-family: $font-stack-system;
+  font-style: italic;
 }
