@@ -1,5 +1,8 @@
 .message {
   position: relative;
+  display: flex; // TODO: make flex work
+  flex-direction: row;
+  align-items: center;
 }
 
 // The speech bubble
@@ -8,21 +11,22 @@
   padding: $base-spacing;
   margin: 0 $base-spacing $base-spacing $base-spacing;
   border-radius: 10px;
+  flex-grow: 1;
 }
 
 .message__body--sent {
-
+  color: $base-font-color;
 }
 
 .message__body--sending {
-
+  color: $medium-gray;
 }
 
 .message__body--failed {
-
+  color: $red;
 }
 
 // The author of the message, goes to the left
 .message__author {
-
+  width: 200px;
 }

@@ -1,8 +1,14 @@
 import React from 'react';
+import _ from 'lodash';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Message from './message';
 
 class MessagesList extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    _.bindAll(this, 'authorWarrior');
+  }
+
   messageKey(message) {
     if (message.has('id')) {
       return message.get('id');
@@ -20,6 +26,10 @@ class MessagesList extends React.Component {
     }
   }
 
+  authorWarrior(message) {
+    return this.props.warriors.get(message.fruit);
+  }
+
   render() {
     return (
       <ul
@@ -27,7 +37,7 @@ class MessagesList extends React.Component {
         ref={node => this._ul = node}
       >
         {
-          this.props.messages.map(message => <Message message={message} key={this.messageKey(message)} />)
+          this.props.messages.map(message => <Message message={message} authorWarrior={this.authorWarrior(message)} key={this.messageKey(message)} />)
         }
       </ul>
     );
@@ -36,6 +46,7 @@ class MessagesList extends React.Component {
 
 MessagesList.propTypes = {
   messages: ImmutablePropTypes.list.isRequired,
+  warriors: ImmutablePropTypes.map.isRequired,
 };
 
 export default MessagesList;
