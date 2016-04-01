@@ -1,0 +1,13 @@
+first:
+  body: Our arch-enemies the Dutch Daimyo Vegetables have struck again!
+  created_at: '2016-04-01 15:07:59.548479'
+  updated_at: '2016-04-01 15:07:59.548479'
+  sent_at: '1635-03-04 13:45:00'
+  fruit: pineapple
+
+second:
+  body: We must strike back at once and destroy those dutch dogs!
+  created_at: '2016-04-01 15:07:59.553731'
+  updated_at: '2016-04-01 15:07:59.553731'
+  sent_at: '1635-03-04 13:46:00'
+  fruit: blueberries

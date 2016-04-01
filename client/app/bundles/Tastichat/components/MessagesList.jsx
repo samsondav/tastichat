@@ -55,13 +55,14 @@ class MessagesList extends React.Component {
   }
 
   render() {
+    const messages = this.props.messages.sortBy(message => message.sentAt);
     return (
       <ul
         className="messages-list"
         ref={node => this._ul = node}
       >
         {
-          this.props.messages.map(message => <Message message={message} authorWarrior={this.authorWarrior(message)} key={this.messageKey(message)} />)
+          messages.map(message => <Message message={message} authorWarrior={this.authorWarrior(message)} key={this.messageKey(message)} />)
         }
       </ul>
     );
