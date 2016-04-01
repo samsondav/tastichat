@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import moment from 'moment';
 import MessageRecord from '../store/MessageRecord';
 import WarriorRecord from '../store/WarriorRecord';
 
@@ -31,7 +32,7 @@ const MessageBody = ({ body, colour, sentAt, status }) => (
       }}
     >
       {body}
-      <div className="message__sent-at">at {sentAt.toString()}</div>
+      <div className="message__sent-at">on {moment(sentAt).format('MMMM Do YYYY, h:mm:ss a')}</div>
     </div>
   </div>
 );

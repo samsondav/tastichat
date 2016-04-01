@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export default () => {
   return (
-    <page>
+    <page className="page">
       <WriteMessageContainer />
       <MessagesListContainer />
     </page>

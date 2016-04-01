@@ -3,10 +3,7 @@
   position: relative;
 }
 
-.page--visible {
-  display: block;
-}
 
-.page--hidden {
-  display: none;
+.tastichat-app {
+  min-width: $medium-screen;
 }
