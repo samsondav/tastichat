@@ -3,6 +3,8 @@
 Tastichat is a simple chat application that allows samurai fruits to plot their
 revenge.
 
+Demo here: http://tastichat.herokuapp.com
+
 It uses websockets for realtime message updates and is built on the following
 technologies:
 

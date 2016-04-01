@@ -2,9 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import Message from './message';
+import Message from './Message';
 import ActionCable from 'es6-actioncable';
-import getCSRFToken from 'lib/getCSRFToken';
 
 class MessagesList extends React.Component {
   constructor(props, context) {
