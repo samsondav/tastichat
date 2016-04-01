@@ -188,6 +188,8 @@ GEM
     scss_lint (0.47.1)
       rake (>= 0.9, < 11)
       sass (~> 3.4.15)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.6.4)
     spring-watcher-listen (2.0.0)
@@ -244,6 +246,7 @@ DEPENDENCIES
   ruby-lint
   sass-rails (~> 5.0)
   scss_lint
+  shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

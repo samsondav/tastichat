@@ -6,7 +6,7 @@ revenge.
 It uses websockets for realtime message updates and is built on the following
 technologies:
 
-= Rails 5
+- Rails 5
 - react_on_rails
 - React (duh) :-)
 - Redux
@@ -15,7 +15,7 @@ technologies:
 - Immutable.js
 - Bourbon/Neat
 
-It demonstrates three core tenets of writing maintainable code:
+It demonstrates several core tenets of writing maintainable code:
 
 1. Good test coverage
 2. Functional programming
@@ -23,5 +23,6 @@ It demonstrates three core tenets of writing maintainable code:
 
 ## Installation and run server
 
-1. `bundle`
-2. `foreman start -f Procfile.dev`
+1. Run `bundle`
+2. Run `foreman start -f Procfile.dev`
+3. Visit http://localhost:3000 in your browser

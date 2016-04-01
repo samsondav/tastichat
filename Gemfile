@@ -64,3 +64,7 @@ group :development do
   gem("ruby-lint", require: false)
   gem("scss_lint", require: false)
 end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
