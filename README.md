@@ -1,24 +1,27 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tastichat is a simple chat application that allows samurai fruits to plot their
+revenge.
 
-Things you may want to cover:
+It uses websockets for realtime message updates and is built on the following
+technologies:
 
-* Ruby version
+= Rails 5
+- react_on_rails
+- React (duh) :-)
+- Redux
+- react-redux
+- ActionCable
+- Immutable.js
+- Bourbon/Neat
 
-* System dependencies
+It demonstrates three core tenets of writing maintainable code:
 
-* Configuration
+1. Good test coverage
+2. Functional programming
+3. Immutable data structures
 
-* Database creation
+## Installation and run server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `bundle`
+2. `foreman start -f Procfile.dev`

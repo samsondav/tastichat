@@ -44,14 +44,10 @@ class MessagesList extends React.Component {
     return `local_${message.get('localId')}`;
   }
 
-  componentWillUpdate() {
-    this.shouldScrollBottom = this._ul.scrollTop + this._ul.offsetHeight === this._ul.scrollHeight;
-  }
 
+  // every new message scrolls to the bottom
   componentDidUpdate() {
-    if (this.shouldScrollBottom) {
-      window.scrollTo(0,document.body.scrollHeight);
-    }
+    window.scrollTo(0,document.body.scrollHeight);
   }
 
   authorWarrior(message) {
