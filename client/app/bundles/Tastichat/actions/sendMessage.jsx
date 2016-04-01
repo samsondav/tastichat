@@ -1,18 +1,10 @@
 import MessageRecord from '../store/MessageRecord';
 import request from 'axios';
 import _ from 'lodash';
+import getCSRFToken from 'lib/getCSRFToken';
 
 request.defaults.headers.post['Content-Type'] = 'application/json';
 
-/**
- * Get CSRF Token from the DOM.
- *
- * @returns {String} - CSRF Token.
- */
-const getCSRFToken = () => {
-  const token = _.find(document.querySelectorAll('meta'), ['name', 'csrf-token']);
-  return token ? token.content : null;
-};
 
 // ACTIONS
 

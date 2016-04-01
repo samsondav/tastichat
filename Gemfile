@@ -40,6 +40,7 @@ gem 'concurrent-ruby', require: 'concurrent'
 group :development, :test do
   # Favour pry over byebug
   gem 'pry-rails'
+  gem 'byebug'
 
   # Use rspec, fixtures and factories for testing
   gem 'factory_girl'

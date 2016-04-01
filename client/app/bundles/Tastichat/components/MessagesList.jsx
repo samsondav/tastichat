@@ -4,6 +4,7 @@ import { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Message from './message';
 import ActionCable from 'es6-actioncable';
+import getCSRFToken from 'lib/getCSRFToken';
 
 class MessagesList extends React.Component {
   constructor(props, context) {

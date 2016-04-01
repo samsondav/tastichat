@@ -5,6 +5,7 @@ class TastichatController < ApplicationController
       warriors: FruitWarrior.all_keyed_by_fruit.as_json,
       thisFruit: FruitWarrior.next.fruit
     }
+    cookies[:chat_window_id] = SecureRandom.hex
   end
 
   def api_list_messages
