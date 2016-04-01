@@ -1,14 +1,14 @@
 $message-meta-size: 150px;
 
 .message {
-  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   // TODO: vertical align of meta and body
 }
 
 .message__body {
+  margin-top: 6px; // makes the message alignment slightly more aesthetically pleasing
   flex-grow: 1;
   position: relative;
 }
@@ -31,11 +31,12 @@ $message-meta-size: 150px;
   padding: $base-spacing;
   margin: 0 $base-spacing $base-spacing $base-spacing;
   border-radius: 10px;
+  position: relative;
 }
 
 .message__sent-at {
   position: absolute;
-  bottom: 0;
+  bottom: -30px; // puts the date underneat the message bubble
   right: $base-spacing;
 }
 

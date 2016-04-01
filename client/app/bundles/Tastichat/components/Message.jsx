@@ -31,8 +31,8 @@ const MessageBody = ({ body, colour, sentAt, status }) => (
       }}
     >
       {body}
+      <div className="message__sent-at">at {sentAt.toString()}</div>
     </div>
-    <div className="message__sent-at">at {sentAt.toString()}</div>
   </div>
 );
 

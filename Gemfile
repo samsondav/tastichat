@@ -26,22 +26,24 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 ## React integration
 gem "react_on_rails", "~> 4"
 
 ## CSS
 gem 'bourbon'
 gem 'neat'
-gem 'bitters', require: false
-gem "autoprefixer-rails"
+gem "autoprefixer-rails" # TODO: does this need configuring?
+
+# Thread-safe concurrency primitives
 gem 'concurrent-ruby', require: 'concurrent'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Favour pry over byebug
   gem 'pry-rails'
+
+  # Use rspec, fixtures and factories for testing
+  gem 'factory_girl'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -51,11 +53,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
 
-# require: false is necessary for the linters as we only want them loaded
-# when used by the linting rake tasks.
-group :development do
+  # Bitters doesn't include anything, we just get an installation helper with it
+  gem 'bitters', require: false
+
+  # require: false is necessary for the linters as we only want them loaded
+  # when used by the linting rake tasks.
   gem("rubocop", require: false)
   gem("ruby-lint", require: false)
   gem("scss_lint", require: false)

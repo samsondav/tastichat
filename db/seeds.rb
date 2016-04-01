@@ -7,7 +7,7 @@ Message.create!(
 )
 
 Message.create!(
-  body: 'We must strike back at once and destroy these dutch dogs!',
+  body: 'We must strike back at once and destroy those dutch dogs!',
   fruit: 'blueberries',
   sent_at: Time.zone.parse('1635-03-04 13:46')
 )
