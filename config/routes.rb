@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     post 'api/message', to: 'tastichat#api_post_message'
   end
 
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end

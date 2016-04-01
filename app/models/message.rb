@@ -2,7 +2,7 @@ class Message < ApplicationRecord
   validates :body, :sent_at, :fruit, presence: true
   validates :fruit, inclusion: { in: FruitWarrior.fruits.to_set }
 
-  def as_json
+  def as_json(*_args)
     {
       id: id,
       body: body,

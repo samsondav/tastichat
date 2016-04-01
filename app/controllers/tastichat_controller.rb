@@ -13,6 +13,7 @@ class TastichatController < ApplicationController
 
   def api_post_message
     m = Message.create!(message_params)
+    ActionCable.server.broadcast 'messages', message: m
     render json: { message: { id: m.id } }, status: :created
   end
 

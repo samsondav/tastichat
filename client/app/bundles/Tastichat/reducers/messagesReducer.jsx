@@ -36,6 +36,12 @@ const messages = (state = initialState, action) => {
       return state.map(m =>
         message(m, action)
       );
+    case 'SERVER_PUBLISHED_MESSAGE':
+      if (state.some(m => m.id === action.messageRecord.id)) {
+        // message is already in the store, do nothing
+        return state;
+      }
+      return state.push(action.messageRecord);
     default:
       return state;
   }

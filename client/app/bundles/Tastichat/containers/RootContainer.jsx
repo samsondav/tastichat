@@ -1,18 +1,23 @@
 import { connect } from 'react-redux';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ChatPage from '../components/ChatPage';
 import WelcomePageContainer from '../containers/WelcomePageContainer';
-import _ from 'lodash';
 
 const mapStateToProps = state => ({
   currentPage: state.currentPage
 });
 
-const TastichatApp = ({ currentPage }) => {
-  if (currentPage === 'welcome') {
-    return <WelcomePageContainer />;
+class TastichatApp extends React.Component {
+  render() {
+    if (this.props.currentPage === 'welcome') {
+      return <WelcomePageContainer />;
+    }
+    return <ChatPage />;
   }
-  return <ChatPage />;
 };
+
+TastichatApp.propTypes = {
+  currentPage: PropTypes.string.isRequired,
+}
 
 export default connect(mapStateToProps)(TastichatApp);

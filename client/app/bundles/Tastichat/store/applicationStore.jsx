@@ -7,12 +7,7 @@ import WarriorRecord from './WarriorRecord';
 
 const importMessages = messages =>
   Immutable.List(
-    messages.map(
-      message => {
-        const messageRecord = new MessageRecord(message);
-        return messageRecord.set('sentAt', new Date(message.sent_at));
-      }
-    )
+    messages.map(message => new MessageRecord(message))
   );
 
 const importWarriors = warriors => {

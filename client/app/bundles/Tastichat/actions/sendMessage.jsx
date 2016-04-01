@@ -14,14 +14,6 @@ const getCSRFToken = () => {
   return token ? token.content : null;
 };
 
-const serializeMessage = messageRecord => {
-  return {
-    sent_at: messageRecord.sentAt.toISOString(),
-    fruit: messageRecord.fruit,
-    body: messageRecord.body,
-  }
-}
-
 // ACTIONS
 
 const sendMessage = (messageRecord) => {
@@ -69,7 +61,7 @@ export default (body, fruit, submitTime = new Date) =>
         'X-CSRF-Token': getCSRFToken(),
       },
       data: {
-        message: serializeMessage(message),
+        message: message.serialize(),
       },
     }).then(res => {
       const canonicalId = res.data.message.id;
