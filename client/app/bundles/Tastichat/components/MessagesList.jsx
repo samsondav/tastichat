@@ -21,15 +21,18 @@ class MessagesList extends React.Component {
     const url = Config.getActionCableURL();
     console.log('Connecting to ActionCable using ', url);
     this._cable = ActionCable.createConsumer(url);
+    const chatWindowId = Config.getChatWindowId();
     // subscribe to actioncable message publications
     this._messaging = this._cable.subscriptions.create('MessagesChannel', {
       received: data => {
         console.log('received: ', data);
-        if (data && data.broadcaster_id !== Config.getChatWindowId) {
+        if (data && data.broadcaster_id !== chatWindowId) {
           this.props.addMessageFromServer(data.message);
         }
       },
     });
+
+    this._scrollToBottom();
   }
 
   componentWillUnmount() {
@@ -51,14 +54,17 @@ class MessagesList extends React.Component {
     return `local_${message.get('localId')}`;
   }
 
-
   // every new message scrolls to the bottom
   componentDidUpdate() {
-    window.scrollTo(0,document.body.scrollHeight);
+    this._scrollToBottom();
   }
 
   authorWarrior(message) {
     return this.props.warriors.get(message.fruit);
+  }
+
+  _scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   render() {
