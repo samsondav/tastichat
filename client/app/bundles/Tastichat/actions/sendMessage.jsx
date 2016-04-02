@@ -1,7 +1,6 @@
 import MessageRecord from '../store/MessageRecord';
 import request from 'axios';
-import _ from 'lodash';
-import getCSRFToken from 'lib/getCSRFToken';
+import Config from 'lib/Config';
 
 request.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -50,10 +49,11 @@ export default (body, fruit, submitTime = new Date) =>
       url: '/api/message.json',
       responseType: 'json',
       headers: {
-        'X-CSRF-Token': getCSRFToken(),
+        'X-CSRF-Token': Config.getCSRFToken(),
       },
       data: {
         message: message.serialize(),
+        chat_window_id: Config.getChatWindowId(),
       },
     }).then(res => {
       const canonicalId = res.data.message.id;

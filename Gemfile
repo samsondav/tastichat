@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 ruby "2.3.0"
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.beta3', '< 5.1'
-# Use sqlite3 as the database for Active Record
+gem 'rails', github: 'rails/rails'
 gem 'pg'
-# Use Puma as the app server
+
+# Use Puma as the app server - a threaded server is necessary for ActionCable
 gem 'puma'
+
+## ASSETS
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -41,7 +42,6 @@ gem 'concurrent-ruby', require: 'concurrent'
 group :development, :test do
   # Favour pry over byebug
   gem 'pry-rails'
-  gem 'byebug'
 
   # Use rspec, fixtures and factories for testing
   gem 'factory_girl'

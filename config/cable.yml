@@ -1,7 +1,8 @@
 # Action Cable uses Redis by default to administer connections, channels, and sending/receiving messages over the WebSocket.
 production:
-  adapter: redis
-  url: redis://localhost:6379/1
+  # adapter: redis
+  # url: redis://localhost:6379/1
+  adapter: async # Redis is needed for multiple processes, but for a single-process Heroku deployment async will actually work fine
 
 development:
   adapter: async

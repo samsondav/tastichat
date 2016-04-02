@@ -5,7 +5,7 @@ class TastichatController < ApplicationController
       warriors: FruitWarrior.all_keyed_by_fruit.as_json,
       thisFruit: FruitWarrior.next.fruit
     }
-    cookies[:chat_window_id] = SecureRandom.hex
+    @chat_window_id = SecureRandom.hex
   end
 
   def api_list_messages
@@ -14,7 +14,7 @@ class TastichatController < ApplicationController
 
   def api_post_message
     m = Message.create!(message_params)
-    ActionCable.server.broadcast 'messages', message: m
+    ActionCable.server.broadcast 'messages', body: { message: m, broadcaster_id: params[:chat_window_id] }
     render json: { message: { id: m.id } }, status: :created
   end
 

@@ -1,9 +1,13 @@
-import React from 'react';
 import _ from 'lodash';
-import { PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Message from './Message';
-import ActionCable from 'es6-actioncable';
+import Config from 'lib/Config';
+
+// NPM-packaged ActionCable would be cleaner but we can't rely on it being up-to-date right now.
+// Use rails to inject it and use the global one instead.
+// import ActionCable from 'es6-actioncable';
+const ActionCable = window.ActionCable;
 
 class MessagesList extends React.Component {
   constructor(props, context) {
@@ -12,12 +16,16 @@ class MessagesList extends React.Component {
   }
 
   componentDidMount() {
+    // HACK: ActionCable **should** autodetect the meta tag but for some reason
+    // its not working, so manually supply it here instead
+    const url = Config.getActionCableURL();
+    console.log('Connecting to ActionCable using ', url);
+    this._cable = ActionCable.createConsumer(url);
     // subscribe to actioncable message publications
-    this._cable = ActionCable.createConsumer('ws://localhost:3000/cable');
     this._messaging = this._cable.subscriptions.create('MessagesChannel', {
       received: data => {
         console.log('received: ', data);
-        if (data) {
+        if (data && data.broadcaster_id !== Config.getChatWindowId) {
           this.props.addMessageFromServer(data.message);
         }
       },
