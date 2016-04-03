@@ -84,6 +84,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  ActionCable.server.config.allowed_request_origins = ['http://tastichat.herokuapp.com']
 
+  config.action_cable.url = 'wss://tastichat.herokuapp.com/cable'
+  ActionCable.server.config.allowed_request_origins = ['http://tastichat.herokuapp.com']
 end
